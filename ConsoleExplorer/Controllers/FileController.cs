@@ -1,6 +1,8 @@
 ﻿using ConsoleExplorer.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ConsoleExplorer.Controlers
 {
@@ -112,6 +114,31 @@ namespace ConsoleExplorer.Controlers
                 {
                     Console.WriteLine("Шлях введено не вірно!");
                 }
+            }
+        }
+
+        public override void SearchFile(string filePath, string input)
+        {
+            List<string> files = new List<string>();
+
+            if(!Directory.Exists(filePath))
+                Console.WriteLine($"Директорії не існує за даним шляхом: {filePath}");
+            else
+            {
+                try
+                {
+                    if (input.Contains("."))
+                        files = (from f in Directory.EnumerateFiles(filePath, $"*{input}", SearchOption.AllDirectories) select f).ToList();
+                    else
+                        files = (from f in Directory.EnumerateFiles(filePath, $"{input}*.?", SearchOption.AllDirectories) select f).ToList();
+                    foreach(string f in files)
+                        Console.WriteLine(f);
+                }
+                catch(ArgumentNullException)
+                {
+                    Console.WriteLine("Не введено дані!");
+                }
+
             }
         }
     }

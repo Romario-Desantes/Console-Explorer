@@ -24,7 +24,8 @@ namespace ConsoleExplorer
                 Console.WriteLine("7. Видалення файлу.");
                 Console.WriteLine("8. Копіювання файлу.");
                 Console.WriteLine("9. Переміщення файлу.");
-                Console.WriteLine("10. Вихід.");
+                Console.WriteLine("10. Пошук файлу.");
+                Console.WriteLine("11. Вихід.");
 
                 Console.WriteLine("_________________________________________________________________");
 
@@ -72,6 +73,13 @@ namespace ConsoleExplorer
                         fileController.MoveFile(Console.ReadLine());
                         break;
                     case "10":
+                        Console.Write("Введіть шлях розташування директорії:");
+                        string dirPath = Console.ReadLine();
+                        Console.Write("Введіть назву або розширення файлу: ");
+                        string input = Console.ReadLine();
+                        fileController.SearchFile(dirPath, input);
+                        return;
+                    case "11":
                         Console.WriteLine("Завершення програми!");
                         return;
                     default:
