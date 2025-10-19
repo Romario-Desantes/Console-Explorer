@@ -17,6 +17,7 @@ namespace ConsoleExplorer.Controlers
                 using (StreamReader sr = new StreamReader(filePath))
                 {
                     string line = sr.ReadToEnd();
+                    Console.Write("Вміст файлу: ");
                     Console.WriteLine(line);
                 }
             }

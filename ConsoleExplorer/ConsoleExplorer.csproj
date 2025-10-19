@@ -38,7 +38,8 @@
   <ItemGroup>
     <Compile Include="Controllers\DirController.cs" />
     <Compile Include="Controllers\FileController.cs" />
-    <Compile Include="Views\Explorer.cs" />
+    <Compile Include="Views\App.cs" />
+    <Compile Include="Explorer.cs" />
     <Compile Include="Models\DirManager.cs" />
     <Compile Include="Models\FileManager.cs" />
   </ItemGroup>

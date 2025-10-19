@@ -3,16 +3,16 @@ using ConsoleExplorer.Controllers;
 using System;
 using System.Text;
 
-namespace ConsoleExplorer
+namespace ConsoleExplorer.Views
 {
-    class Explorer
+    class App
     {
-        static void Main(string[] args)
+        public void Run()
         {
             Console.OutputEncoding = Encoding.UTF8;
             DirController directoryController = new DirController();
             FileController fileController = new FileController();
-            while (true) 
+            while (true)
             {
                 Console.WriteLine("Опції:");
                 Console.WriteLine("1. Перегляд директорії.");
@@ -50,7 +50,6 @@ namespace ConsoleExplorer
                     case "4":
                         Console.Write("Введіть шляx розташування файлу: ");
                         fileController.ReadFile(Console.ReadLine());
-                        Console.WriteLine("Вміст файлу: ");
                         break;
                     case "5":
                         Console.Write("Введіть шляx для дописання файлу: ");
@@ -87,7 +86,6 @@ namespace ConsoleExplorer
                         break;
                 }
             }
-            
         }
     }
 }
